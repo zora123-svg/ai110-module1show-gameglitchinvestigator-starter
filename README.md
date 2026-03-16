@@ -39,4 +39,4 @@ interaction instead of remaining fixed, and the attempts counter was not decreme
 
 ## 🚀 Stretch Features
 
-- [ ] [If you choose to complete Challenge 4, insert a screenshot of your Enhanced Game UI here]
+- [Enhanced UI] [![alt text](image-2.png)]
