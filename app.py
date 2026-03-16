@@ -283,12 +283,14 @@ raw_guess = st.text_input(
     placeholder=f"Pick a number between {low} and {high}…",
 )
 
-col1, col2, col3 = st.columns(3)
+col1, col2, col3, col4 = st.columns(4)
 with col1:
     submit = st.button("Submit Guess 🚀", use_container_width=True)
 with col2:
     new_game = st.button("New Game 🔁", use_container_width=True)
 with col3:
+    reset_score = st.button("Reset Score 🔄", use_container_width=True)
+with col4:
     show_hint = st.checkbox("Show hint", value=True)
 
 # ── New game ──────────────────────────────────────────────────────────────────
@@ -300,6 +302,17 @@ if new_game:
     st.session_state.history = []
     st.session_state.outcomes = []
     st.success("New game started!")
+    st.rerun()
+
+# ── Reset score ────────────────────────────────────────────────────────────────
+if reset_score:
+    st.session_state.score = 0
+    st.session_state.attempts = 0
+    st.session_state.secret = random.randint(low, high)
+    st.session_state.status = "playing"
+    st.session_state.history = []
+    st.session_state.outcomes = []
+    st.success("Score reset! Fresh start.")
     st.rerun()
 
 # ── Game-over gate ─────────────────────────────────────────────────────────────
