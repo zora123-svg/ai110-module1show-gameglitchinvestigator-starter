@@ -11,8 +11,7 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 The first bug I identified is that the "New Game" button does not work. The second bug is 
 that the generated number is not constrained between 1 and 100, and the logic that 
 indicates whether a guess is too low or too high is incorrect. Additionally, the game ends 
-prematurely before the last attempt is reached and reveals the secret number. Finally, there may be an issue with the 
-difficulty settings, specifically regarding number ranges and the number of attempts allowed.
+prematurely before the last attempt is reached and reveals the secret number. Finally, there may be an issue with the difficulty settings, specifically regarding number ranges and the number of attempts allowed.
 
 ---
 
@@ -37,11 +36,6 @@ For the new game button error in order to verify if the bug was fixed I manualy 
 
 ## 4. What did you learn about Streamlit and state?
 
-- In your own words, explain why the secret number kept changing in the original app.
-- How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
-- What change did you make that finally gave the game a stable secret number?
-
----
 Streamlit reruns the entire script from top to bottom on every user interaction — every keypress, button click, or widget change. Without st.session_state, a plain variable like secret = random.randint(low, high) would be re-evaluated on each rerun, generating a brand new random number every time the user typed or clicked anything. A session.state is the state of an application and based on that state it will act a cetain way. The way I changed it was to make the random.randint() run only once.
 
 ## 5. Looking ahead: your developer habits
